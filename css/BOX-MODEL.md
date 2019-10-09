@@ -28,7 +28,7 @@ CSS는 HTML을 디자인하기 위함입니다. HTML은 element들의 집합이�
 
 그렇기에 elements의 구조에 대한 이해가 필요합니다.
 
-![1349](C:\Users\82109\Desktop\1349.gif)
+![1349](C:\Users\82109\Desktop\1349.gif?raw=true)
 
 <br>
 
