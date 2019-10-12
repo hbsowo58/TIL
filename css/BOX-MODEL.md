@@ -28,7 +28,7 @@ CSS는 HTML을 디자인하기 위함입니다. HTML은 element들의 집합이�
 
 그렇기에 elements의 구조에 대한 이해가 필요합니다.
 
-![1349](C:\Users\82109\Desktop\1349.gif?raw=true)
+![box-model](https://user-images.githubusercontent.com/48181483/95279366-86358f00-088d-11eb-844a-5757a364ed09.gif)
 
 <br>
 
@@ -60,7 +60,7 @@ default 값이 content-box이고, 예를 들어보겠습니다.
 
 <br>
 
-![초기시작](C:\Users\82109\Desktop\초기시작.png)
+<img width="1280" alt="initial" src="https://user-images.githubusercontent.com/48181483/95279387-964d6e80-088d-11eb-8331-6988fe259efa.png">
 
 <br>
 
@@ -169,7 +169,7 @@ body{
 
 <br>
 
-![변화](C:\Users\82109\Desktop\변화.png)
+<img width="1280" alt="change" src="https://user-images.githubusercontent.com/48181483/95279411-a5ccb780-088d-11eb-95d0-6808ea2405f0.png">
 
 <br>
 
@@ -179,7 +179,9 @@ body{
 
 1,3번은 이해가 가고, 4번은 margin 속성에 대해 이해하면 납득이 가는데 제가 말하고 싶은 내용은 2번 박스입니다.
 
-2번 박스는 안쪽 여백(padding) 속성을 사용했는데 상자가 커졌습니다. 이것을 개발자 도구로 보게 되면![패딩 예제](C:\Users\82109\Desktop\패딩 예제.png)
+2번 박스는 안쪽 여백(padding) 속성을 사용했는데 상자가 커졌습니다. 이것을 개발자 도구로 보게 되면
+
+<img width="1280" alt="padding example" src="https://user-images.githubusercontent.com/48181483/95279448-b67d2d80-088d-11eb-84ef-c07d73975840.png">
 
 <br>
 
@@ -235,7 +237,7 @@ HTML 파일은 그대로 두고 CSS의 두 번째 박스에 box-sizing: border-b
 
 <br>
 
-![box-sizing 변화](C:\Users\82109\Desktop\box-sizing 변화.png)
+<img width="1280" alt="box-sizing change" src="https://user-images.githubusercontent.com/48181483/95279483-c98ffd80-088d-11eb-816a-f74ba61c11f0.png">
 
 원하는 대로 구성이 되었습니다. box-model에 대한 이해를 바탕으로 작업하는 HTML elements의 부피를 어떻게 조절할 것인가를 고려한다면, CSS의 항해를 순항할 수 있을 것입니다.
 
