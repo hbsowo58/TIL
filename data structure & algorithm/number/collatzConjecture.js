@@ -42,6 +42,17 @@ function collatzConjecture2(num) {
 // 2 answer라는 변수도 필요 없다.
 // 3 재귀로 풀어야 하나?
 
+function collatzConjecture3(num, count = 0) {
+  return num === 1
+    ? count >= 500
+      ? -1
+      : count
+    : collatz(num % 2 == 0 ? num / 2 : num * 3 + 1, ++count);
+}
+
+// 1 재귀 풀이 한 줄 num이 1인지 확인 후 count가 500을 넘으면 -1, 아니면 0을 리턴한다(이경우 최초 num에 1 들어옴)
+// 2 아니라면 재귀로 로직을 반복한다 삼 항 조건 연산자 안에 삼 항 조건 연산자가 있어서 헷갈리는 거 조심
+
 console.log(collatzConjecture(6));
 console.log(collatzConjecture(16));
 console.log(collatzConjecture(626331));
@@ -53,3 +64,9 @@ console.log(collatzConjecture2(16));
 console.log(collatzConjecture2(626331));
 console.log(collatzConjecture2(0));
 console.log(collatzConjecture2(1));
+
+console.log(collatzConjecture3(6));
+console.log(collatzConjecture3(16));
+console.log(collatzConjecture3(626331));
+console.log(collatzConjecture3(0));
+console.log(collatzConjecture3(1));
