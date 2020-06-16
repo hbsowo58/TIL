@@ -2,28 +2,28 @@
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Toast UI</title>
   <style>
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
     body {
-      font-family: 'Open Sans';
+      font-family: "Open Sans";
       font-weight: 300;
-      background-color: #D6E1E5;
+      background-color: #d6e1e5;
     }
 
     h1 {
-      color: #DB5B33;
+      color: #db5b33;
       font-weight: 300;
       text-align: center;
     }
 
-    /* .toast-container {
+    .toast-container {
       position: relative;
-    } */
+    }
 
     .toast {
       position: absolute;
@@ -77,8 +77,6 @@
         transform: translateX(0);
       }
     }
-
-    /* CSS 작성 바랍니다. */
   </style>
 </head>
 
@@ -92,75 +90,66 @@
   <div class="toast-container"></div>
   <script>
     let toasts = [];
-    const $success = document.querySelector('.show-success');
-    const $error = document.querySelector('.show-error');
-    const $warning = document.querySelector('.show-warning');
-    const $container = document.querySelector('.toast-container');
+    const $success = document.querySelector(".show-success");
+    const $error = document.querySelector(".show-error");
+    const $warning = document.querySelector(".show-warning");
+    const $container = document.querySelector(".toast-container");
 
-    $success.addEventListener('click', (e) => {
-      // console.log(e.target.innerText.toLowerCase());
-      // console.log('1', "suc clicked")
+    $success.addEventListener("click", (e) => {
       addToast(e.target.innerText.toLowerCase());
-    })
+    });
 
-    $error.addEventListener('click', (e) => {
-      // console.log(e.target.innerText.toLowerCase());
-      // console.log('1', "suc clicked")
+    $error.addEventListener("click", (e) => {
       addToast(e.target.innerText.toLowerCase());
-    })
+    });
 
-    $warning.addEventListener('click', (e) => {
-      // console.log(e.target.innerText.toLowerCase());
-      // console.log('1', "suc clicked")
+    $warning.addEventListener("click", (e) => {
       addToast(e.target.innerText.toLowerCase());
-    })
+    });
 
     const addToast = (type) => {
-      // console.log(type)
-      const isSuccess = 'success';
+      const isSuccess = "success";
       toasts = [
         ...toasts,
         {
           class: `toast toast-${type}`,
-          heading: `${type === isSuccess ? 'Well Done!' : 'Check it out!'}`,
-          message: `This is a ${type} alert`
-        }
+          heading: `${type === isSuccess ? "Well Done!" : "Check it out!"}`,
+          message: `This is a ${type} alert`,
+        },
       ];
-      console.log('1', toasts);
+      // console.log("1", toasts);
       render();
-      // setTimeout(() => {
-      //   removeToast();
-      //   render();
-      // }, 6000);
-    }
+      setTimeout(() => {
+        removeToast();
+        render();
+      }, 10000);
+    };
 
     const removeToast = () => {
-      toasts = toasts.slice(1, toasts.length);
-    }
+      toasts = toasts.slice(1, toasts.length); // 3개 기준 1~2 (3미포함) 앞에것만 제거해라
+    };
 
     const render = () => {
       let html = "";
       const _toasts = toasts;
-      console.log(toasts)
-      //<div *ngFor="let toast of toasts; let i = index" class="{{ toast.class }}" [style.top.px]="i * 100">
+      console.log("2", toasts);
       _toasts.forEach((ele, idx) => {
-        html += `<div class="${ele.class}" style="top:${idx*100}px">
+        html += `<div class="${ele.class}" style="top:${idx * 100}px">
           <b class="toast-heading">${ele.heading}${idx}</b>
           <button class="close" onclick="removeByIndex(${idx})"">X</button>
           <p>${ele.message}</p>
           </div>`;
       });
+      // console.log("3html", html)
       $container.innerHTML = html;
-      // const $close = document.querySelector('.close');
-      // $close.addEventListener('click', (e) => console.log("hi"));
-
-    }
+      // $container.insertAdjacentHTML('afterend', html);
+    };
     const removeByIndex = (index) => {
       toasts = toasts.filter((toast, idx) => {
         return idx !== index;
       });
       render();
-    }
+    };
   </script>
 </body>
 
