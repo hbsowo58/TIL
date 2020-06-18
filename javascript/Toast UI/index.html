@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Toast UI</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+    body {
+      font-family: "Open Sans";
+      font-weight: 300;
+      background-color: #d6e1e5;
+    }
+
+    h1 {
+      color: #db5b33;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .toast-container {
+      position: relative;
+    }
+
+    .toast {
+      position: absolute;
+      right: 0;
+      box-sizing: border-box;
+      width: 300px;
+      height: 100px;
+      padding: 10px 15px;
+      border: 1px solid transparent;
+      animation: move 2s both;
+    }
+
+    .toast-success {
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+
+    .toast-error {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+
+    .toast-warning {
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .toast-heading {
+      margin-top: 10px;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>JavaScript Toast</h1>
+
+  <button class="show-success">Success</button>
+  <button class="show-error">Error</button>
+  <button class="show-warning">Warning</button>
+
+  <div class="toast-container"></div>
+  <script>
+    let toasts = [];
+    const $success = document.querySelector(".show-success");
+    const $error = document.querySelector(".show-error");
+    const $warning = document.querySelector(".show-warning");
+    const $container = document.querySelector(".toast-container");
+
+    $success.addEventListener("click", (e) => {
+      addToast(e.target.innerText.toLowerCase());
+    });
+
+    $error.addEventListener("click", (e) => {
+      addToast(e.target.innerText.toLowerCase());
+    });
+
+    $warning.addEventListener("click", (e) => {
+      addToast(e.target.innerText.toLowerCase());
+    });
+
+    const addToast = (type) => {
+      const isSuccess = "success";
+      toasts = [
+        ...toasts,
+        {
+          class: `toast toast-${type}`,
+          heading: `${type === isSuccess ? "Well Done!" : "Check it out!"}`,
+          message: `This is a ${type} alert`,
+        },
+      ];
+      // console.log("1", toasts);
+      render();
+      setTimeout(() => {
+        removeToast();
+        render();
+      }, 10000);
+    };
+
+    const removeToast = () => {
+      toasts = toasts.slice(1, toasts.length); // 3개 기준 1~2 (3미포함) 앞에것만 제거해라
+    };
+
+    const render = () => {
+      let html = "";
+      const _toasts = toasts;
+      console.log("2", toasts);
+      _toasts.forEach((ele, idx) => {
+        html += `<div class="${ele.class}" style="top:${idx * 100}px">
+          <b class="toast-heading">${ele.heading}${idx}</b>
+          <button class="close" onclick="removeByIndex(${idx})"">X</button>
+          <p>${ele.message}</p>
+          </div>`;
+      });
+      // console.log("3html", html)
+      $container.innerHTML = html;
+      // $container.insertAdjacentHTML('afterend', html);
+    };
+    const removeByIndex = (index) => {
+      toasts = toasts.filter((toast, idx) => {
+        return idx !== index;
+      });
+      render();
+    };
+  </script>
+</body>
+
+</html>
