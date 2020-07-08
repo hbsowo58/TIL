@@ -1,10 +1,17 @@
+/* eslint-disable indent */
+/* eslint-disable no-unused-vars */
 function hideNumbers(phone_number) {
   const frontNum = phone_number.slice(0, phone_number.length - 4).replace(/(\d)/g, "*");
   const backNum = phone_number.slice(-4);
   return frontNum + backNum;
 }
 
-// 번호중 뒷네자리수를 제외하고 2개로 나눠서 앞을 변경한뒤 뒤와 합치면서 반환
+function hide_numbers2(s) {
+  return s.replace(/\d(?=\d{4})/g, "*");
+  // /(\d)/g 모든 숫자를 찾는것에서, (?=\d{4}) 하위식 추가 ?= 끝에서부터 4글자는 *로 대체하는 로직인듯(부채)
+}
 
 console.log(hideNumbers("01033334444"));
 console.log(hideNumbers("027778888"));
+console.log(hide_numbers2("01033334444"));
+console.log(hide_numbers2("027778888"));
