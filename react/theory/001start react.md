@@ -1,4 +1,4 @@
-# [1 일차] 리액트 시작하기
+# 리액트 시작하기
 
 - 리액트를 위한 JS 문법 정리
 - Create React App
@@ -26,7 +26,15 @@ ReferenceError 참조에러
 
 에러를 throw하고 싶다면 에러객체를 상속받으라 (에러를 상속한다?)
 
+---
 
+함수를 정의하는 많은 방법
+
+함수 표현식, 함수 정의문 new Function
+
+const sum = new Function('a','b', 'return a+b');
+
+---
 
 내 코드의 대부분은 const이다 왜냐?
 
@@ -50,11 +58,17 @@ ReferenceError 참조에러
 
 데코레이터 : 바인드를 하는 autobind  @boundMethod
 
+---
 
+# 함수.bind(디스)
+
+함수의 this로 '디스'를 사용하는 ☆"함수"를 만들어 리턴
 
 ## Destructuring assignment
 
-배열이 땡김 (배열은 순서가 존재하기 때문)
+배열형태를 추천함 (배열은 순서가 존재하기 때문) = react 등이 배열로 자료구조를 주는 이유
+
+작업을 할때 네이밍 할 수 있도록.
 
 
 
@@ -78,7 +92,27 @@ resolve, reject 콜백으로 결과를 알려줌
 
 ## Generator 
 
-리덕스 saga
+function* 키워드 뒤에 핸들러
+
+리덕스 saga에서 주로사용
+
+---
+
+Angular , Vue (vs) React
+
+템플릿 기반 vs 템플릿 기반이 아님
+
+귀납적 vs 연역
+
+---
+
+# 통신방법의 발전
+
+XMLHTTPrequest => fetch(IE문제) -> axios 같은 XMLHTTPreqeust기반
+
+---
+
+HTML 에서 어트리뷰트 VS 리액트에서 prop 모여서 props
 
 ## 왜 npx 가 필요했을까요??
 
@@ -90,7 +124,7 @@ resolve, reject 콜백으로 결과를 알려줌
 
 매번 새로운버전으로 진행
 
-
+---
 
 베포 (빌드해서 )
 
@@ -98,43 +132,41 @@ npm test(jest -페이스북)
 
 모카 -> jest (느림) ->다시 모카
 
-
+--
 
 eject (비디오테이프 / 시디)
 
 -> 안보이던애들이 다나옴 바벨등
 
-
+---
 
 npm run build
 
 어글리파이 (못생기게) / 경량화
 
-
+---
 
 aws / 도커로 말기 (배포)
 
-
+---
 
 serve 파일들을 서버로 만들어서 딜리버리할 수 있게 해주는 패키지
 
-
+---
 
 zeit / next.js
 
-
-
-
+---
 
 -s 어떤 요청이 오더라도 index.html(루트)로 간다
 
 -single page application의 약자
 
-
+---
 
 yarn 을안쓰고 npm을 써야하는이유
 
-
+---
 
 packege-lock은 어디에 쓰는 물건인고?
 
@@ -144,11 +176,9 @@ yarn으로 설치하면 yarn.lock이 생김
 
 yarn의 메리트 (속도가 좀빠르다?)
 
-
+---
 
 npm ci (마지막 작업했던 그대로 사용하고싶다)
-
-
 
 ## Prettier
 
@@ -199,4 +229,12 @@ this.setState를 했을때만 렌더하게
 state = ""하면 모든것을 찾아내야되니까
 
 
+
+
+
+
+
+확인해볼 것
+
+Deno
 
