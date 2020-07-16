@@ -1,6 +1,8 @@
 # 리액트 시작하기
 
-- 리액트를 위한 JS 문법 정리
+전과정
+
+- 리액트를 위한 JS 문법 정리                                                         
 - Create React App
 - Prettier + ESLint + husky + lint-staged 사용하기
 - 리액트 컴포넌트 디버깅
@@ -14,7 +16,49 @@
 
 ---
 
+현과정
+
+*리액트를 위한 JS 문법 정리*
+
+*React Concept*
+
+*React 라이브러리*
+
+*JSX 문법*
+
+*React Component 만드는 법*
+
+*props 와 state*
+
+*DOM 이벤트 다루기*
+
+*컴포넌트 라이프사이클*
+
+---
+
 신기술을 선택적으로 분석하고 습득할 수 있는 능력
+
+---
+
+문법정리의 내용 (리액트를 사용하려면 필요한 자바스크립트 문법 지식)
+
+### *const let*
+
+### *template string*
+
+### *arrow function*
+
+### *.bind(this)*
+
+### *const {children} = this.props;*
+
+### *...props*
+
+### *Promise*
+
+### *async await*
+
+### *Generator*
 
 ---
 
@@ -28,6 +72,129 @@ ReferenceError 참조에러
 
 ---
 
+```javascript
+//var의 단점
+(function() {
+  if (true) {   
+    var variable = 'function scope';
+  }
+  
+  console.log(variable);
+})();
+//1.함수레벨 스코프
+
+(function() {
+  var variable = 'function scope';
+  var variable = 'duplicated';
+  
+  console.log(variable);
+})();
+//2.중복 선언 가능
+(function() {
+  variable = 'no var';
+  
+  console.log(variable);
+})();
+
+console.log(variable);
+//3.생략가능
+
+(function() {
+  console.log(variable);
+  
+  var variable = 'hoisted';
+})();
+
+(function() {
+  var variable;
+  
+  console.log(variable);
+  
+  variable = 'hoisted';
+})();
+//4.호이스팅
+```
+
+-> var의 단점을 해결하고자 es6에 let, const 키워드 추가
+
+```javascript
+// 1. 블록 레벨 스코프
+{
+  let variable = 'block scope';
+  console.log(variable);
+}
+
+// 2. 중복 선언 => SyntaxError
+{
+  let variable = 'block scope';
+  let variable = 'duplicated';
+  console.log(variable);
+}
+
+// 3. 호이스팅 => ReferenceError
+{
+  console.log(variable);
+  let variable = 'hoisted';
+}
+```
+
+let은 변경 가능, const는 불가능
+
+```javascript
+// Primitive
+let a = 'a';
+a = 'b';
+a;
+
+const c = 'c';
+c = 'd'; // TypeError
+c;
+
+
+let e = {
+  foo: 'foo',
+};
+e = {
+  bar: 'bar',
+};
+e;
+
+const f = {
+  foo: 'foo',
+};
+// f = {
+//   foo: 'bar',
+// }; TypeError
+f.foo = 'bar';
+f;
+
+// 변경을 재할당이라고도 하는데 구분이 필요하다
+```
+
+ES6 이후에서 var 키워드는 더 이상 사용하지 않는다는 것을 알게 되었고, let과 const만 남게 된다는 사실을 얻었다.
+
+Q) 당신의 코드의 let과 const의 비율은 어떻게 되나요? => 정확하게 말할 수 없지만, 대부분 const입니다 왜냐면
+
+재할당할 일이 없을 것이라 추측하고 참조 값이 바뀔 일이 없다 꼭 변경(재할당)이 필요한 경우에만 let을 사용
+
+코드 리뷰 ) let은 쓴 자리가 const를 쓸 수 없는지 확인한다 - 의도 명확히
+
+<https://overreacted.io/on-let-vs-const/>
+
+---
+
+# template string
+
+```javascript
+const name = 'Mark';
+console.log('안녕하세요.\n제 이름은 ' + name + ' 입니다.');//ES6이전
+console.log(`안녕하세요.
+제 이름은 ${name} 입니다.`);//ES6 이후
+
+```
+
+---
+
 함수를 정의하는 많은 방법
 
 함수 표현식, 함수 정의문 new Function
@@ -35,18 +202,6 @@ ReferenceError 참조에러
 const sum = new Function('a','b', 'return a+b');
 
 ---
-
-내 코드의 대부분은 const이다 왜냐?
-
-재할당할일이 없을것이라 추측하고 참조값이 바뀔일이 없다
-
-코드리뷰 ) let은 쓴자리가 const를 쓸수없는지 확인한다 - 의도 명확히
-
-
-
-<https://overreacted.io/on-let-vs-const/>
-
-
 
 ## arrow function
 
