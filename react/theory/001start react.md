@@ -186,7 +186,7 @@ Q) 당신의 코드의 let과 const의 비율은 어떻게 되나요? => 정확�
 # template string
 
 ```javascript
-const name = 'Mark';
+const name = 'Heo';
 console.log('안녕하세요.\n제 이름은 ' + name + ' 입니다.');//ES6이전
 console.log(`안녕하세요.
 제 이름은 ${name} 입니다.`);//ES6 이후
@@ -206,10 +206,41 @@ const sum = new Function('a','b', 'return a+b');
 ## arrow function
 
 - *자신의 this 를 만들지 않는다.* -> 그렇기에 생성자로 사용할 수 없다
+- 이름 x 부를 수 없음  만들어서 변수에 넣어야함! 익명함수
+- 리턴만 있으면 {} 중괄호 생략, 인자가 하나면 () 매개변수에 괄호 생략
 
-- 이름 x 부를 수 없음  만들어서 변수에 넣어야함!
+```javascript
+function Foo() {
+  this.name = 'Heo';
 
-  
+  setTimeout(function() {
+    console.log(this.name);
+  }, 1000);
+
+  setTimeout(() => {
+    console.log(this.name);
+  }, 1000);
+}
+
+const foo = new Foo();
+// window.name , Heo 출력 화살표함수는 렉시컬디스 일반함수는 window를 가리킴
+
+const a = () => {
+  return '리턴';
+};
+
+console.log(a());
+
+// 리턴이 바로 표현 가능하면, { return } 생략
+const b = () => '리턴';
+
+console.log(b());
+
+// 매개변수가 한개면 () 생략
+const c = props => `리턴 ${props}`;
+
+console.log(c('프롭스'));
+```
 
 데코레이터 : 바인드를 하는 autobind  @boundMethod
 
@@ -219,17 +250,103 @@ const sum = new Function('a','b', 'return a+b');
 
 함수의 this로 '디스'를 사용하는 ☆"함수"를 만들어 리턴
 
+```javascript
+function hello() {
+  console.log(`안녕하세요 ${this.name}`);
+}
+
+const Heo = {
+  name: 'Heo',
+};
+
+const helloHeo = hello.bind(Heo);
+
+helloHeo();
+
+const anna = {
+  name: 'Anna',
+};
+
+const helloAnna = hello.bind(anna);
+
+helloAnna();
+
+
+```
+
 ## Destructuring assignment
 
-배열형태를 추천함 (배열은 순서가 존재하기 때문) = react 등이 배열로 자료구조를 주는 이유
+```javascript
+const foo = {
+  a: '에이',
+  b: '비이',
+};
+
+const { a, b } = foo;
+console.log(a, b);
+
+const bar = ['씨이', '디이'];
+
+const [c, d] = bar;
+console.log(c, d);
+
+const { a: newA, b: newB } = foo;
+console.log(newA, newB);
+```
+
+반환값을 만들때 배열형태를 추천함 (배열은 순서가 존재하기 때문) = react 등이 배열로 자료구조를 주는 이유
 
 작업을 할때 네이밍 할 수 있도록.
 
-
-
 ## Spread 와 Rest
 
-1레벨 깊이에서만 된다는점
+```javascript
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+console.log(sum(1, 2, 3));
+
+const numbers = [2, 3, 4];
+
+console.log(sum(...numbers));
+
+const obj = { a: 3, b: 4, c: 5 };
+
+const cloned = { ...obj, a: 6 };
+cloned.c = 10;
+
+console.log(obj, cloned);
+
+const obj1 = { a: { b: 100 } };
+
+const obj1Cloned = { ...obj1 };
+obj1Cloned.a.b = 200;
+
+console.log(obj1, obj1Cloned);
+
+const obj2 = { a: { b: 100 } };
+
+const obj2Cloned = { ...obj2, a: { ...obj2.a } };
+obj2Cloned.a.b = 200;
+
+console.log(obj2, obj2Cloned);
+
+
+function rest1(...args) {
+  console.log(args);
+}
+
+rest1('mark', 37, 'korea');
+
+function rest2(name, ...args) {
+  console.log(name, args);
+}
+
+rest2('mark', 37, 'korea');
+```
+
+1레벨 깊이에서만 된다는점 주의 2레벨이상 사용하려면 깊게 들어가거나 라이브러리 사용
 
 ## Promise
 
