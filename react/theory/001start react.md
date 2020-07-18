@@ -348,33 +348,180 @@ rest2('mark', 37, 'korea');
 
 1레벨 깊이에서만 된다는점 주의 2레벨이상 사용하려면 깊게 들어가거나 라이브러리 사용
 
-## Promise
+# 비동기 패턴의 진화
 
-new promise() 팬딩상태
+```javascript
+//최초 비동기 콜백함수 사용
+function foo(callback) {
+  setTimeout(() => {
+    // 로직
+    callback();
+  }, 1000);
+}
 
+foo(() => {
+  console.log('end');
+});
+console.log('이것이 먼저 실행');
 
+//이후 promise 사용
+function foo() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // 로직
+      resolve();
+    }, 1000);
+  });
+}
 
-resolve, reject 콜백으로 결과를 알려줌
+foo().then(() => {
+  console.log('end');
+});
+console.log('이것이 먼저 실행');
 
-## async - await
+//new Promise는 팬딩상태
+//Promise 객체를 만들고, 로직 처리 후 성공과 실패를 알려준다.
+//then 과 catch 를 통해 메인 로직에 전달한다.
 
-기본적으로 promise로 만들어지는 함수가 있어야됨
+//이후 async - await로 변경
 
+function foo() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // 로직
+      resolve();
+    }, 1000);
+  });
+}
 
+(async () => {
+  await foo();
+  console.log('end');
+  console.log('이것이 먼저 실행');
+})();
 
-## Generator 
+//기본적으로 Promise 를 사용한다.
+//then 과 catch 를 통해 메인 로직에 전달한다.
+//async 키워드가 붙은 함수 안에서만 await 키워드를 사용할 수 있다.
 
-function* 키워드 뒤에 핸들러
+//이후 Generator 객체
 
-리덕스 saga에서 주로사용
+function* foo() {
+  console.log(0.5);
+  yield 1;
+  console.log(1.5);
+  yield 2;
+  console.log(2.5);
+  yield 3;
+  console.log(3.5);
+}
+
+const g = foo();
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+console.log(g.next().value);
+
+let handle = null;
+
+// 비동기 함수
+function bar() {
+  setTimeout(() => {
+    handle.next('hello');
+  }, 1000);
+}
+
+// 핸들을 통해 컨트롤을 넘기는 제너레이터 함수
+function* baz() {
+  const text = yield bar();
+  console.log(text);
+}
+
+handle = baz();
+handle.next();
+
+//function* 으로 만들어진 함수를 호출하면 반환되는 객체이다.
+//function* 에서 yield 를 호출하여, 다시 제어권을 넘겨준다.
+//제너레이터 객체에 next() 함수를 호출하면, 다음 yield  지점까지 간다.
+//redux saga에서 주로사용
+```
 
 ---
+
+# react concept
 
 Angular , Vue (vs) React
 
 템플릿 기반 vs 템플릿 기반이 아님
 
 귀납적 vs 연역
+
+react란 view를 다루는 라이브러리
+
+*Only Rendering & Update*
+
+- *NOT included another functionality (ex. http client, ...)*
+
+*Component Based Development*
+
+- *독립적인 코드 블럭 (HTML + CSS + JavaScript)*
+- *작업의 단위*
+
+*Virtual DOM*
+
+- *이제는 DOM 을 직접 다루지 않음.*
+
+*JSX*
+
+- *NOT Templates*
+- *transpile to JS (Babel, TypeScript)*
+
+*CSR & SSR*
+
+---
+
+### 왜 가상돔을 사용할까?
+
+DOM 을 직접 제어하는 경우
+
+바뀐 부분만 정확히 바꿔야 하는 반면
+
+DOM을 직접 제어하지 않는 경우
+
+가상의 돔 트리를 사용해서
+
+이전 상태와 이후 상태를 비교하여,
+
+바뀐 부분을 찾아내서 자동으로 바꾼다
+
+---
+
+CSR vs SSR
+
+### *CSR*
+
+- ### JS 가 전부 다운로드 되어 리액트 애플리케이션이 정상 실행되기 전까지는 화면이 보이지 않음.
+
+- ### JS 가 전부 다운로드 되어 리액트 애플리케이션이 정상 실행된 후, 화면이 보이면서 유저가 인터렉션 가능
+
+### *SSR*
+
+- ### JS 가 전부 다운로드 되지 않아도, 일단 화면은 보이지만 유저가 사용 할 수 없음.
+
+- ### JS 가 전부 다운로드 되어 리액트 애플리케이션이 정상 실행된 후, 유저가 사용 가능
+
+---
+
+리액트가 하는 일
+
+```react
+// 1. 리액트 컴포넌트 => HTMLElement 연결하기
+import ReactDOM from 'react-dom';
+
+// 2. 리액트 컴포넌트 만들기
+import React from 'react';
+```
 
 ---
 
