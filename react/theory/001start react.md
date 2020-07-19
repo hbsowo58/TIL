@@ -525,6 +525,46 @@ import React from 'react';
 
 ---
 
+*JSX 문법으로 작성된 코드는 순수한 JavaScript 로 컴파일 하여 사용한다.*
+
+*누가 해주나요?? => babel*
+
+왜 JSX 을 쓰나요??
+
+<br>
+
+- React.createElement VS JSX 가독성 완승
+- *babel 과 같은 컴파일 과정에서 문법적 오류를 인지하기 쉬움*
+
+<br>
+
+문법 조건
+
+*최상위 요소가 하나여야 합니다.*
+
+*최상위 요소 리턴하는 경우, ( ) 로 감싸야 합니다.*
+
+*자식들을 바로 랜더링하고 싶으면, <>자식들</> 를 사용합니다. => Fragment*
+
+*자바스크립트 표현식을 사용하려면, {표현식} 를 이용합니다.*
+
+*if 문은 사용할 수 없습니다.*
+
+- *삼항 연산자 혹은 && 를 사용합니다.*
+
+*style 을 이용해 인라인 스타일링이 가능합니다.*
+
+*class 대신 className 을 사용해 class 를 적용할 수 있습니다.*
+
+*자식요소가 있으면, 꼭 닫아야 하고, 자식요소가 없으면 열면서 닫아야 합니다.*
+
+- *<p>어쩌구</p>*
+- <br />
+
+---
+
+
+
 # 통신방법의 발전
 
 XMLHTTPrequest => fetch(IE문제) -> axios 같은 XMLHTTPreqeust기반
@@ -622,37 +662,9 @@ npm ci (마지막 작업했던 그대로 사용하고싶다)
 
 add하면 staged 상태
 
+---
 
 
-# React Concept
-
-*View 라이브러리*
-
-
-
-스벨터 (리액트에 반대대는 목적)
-
--돔을 직접 바꿀꺼야
-
-리액트
-
--돔을 비교해서 바꿀거야
-
-
-
-```
-class ClassComponent from React.Component {
-  render() {
-    return (<div>Hello</div>);
-  } //랜더함수를 구현 
-}
-```
-
-
-
-this.setState를 했을때만 렌더하게
-
-state = ""하면 모든것을 찾아내야되니까
 
 
 
