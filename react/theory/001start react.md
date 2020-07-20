@@ -114,6 +114,13 @@ XMLHTTPrequest => fetch(IE문제) -> axios 같은 XMLHTTPreqeust기반
 
 HTML 에서 어트리뷰트 VS 리액트에서 prop 모여서 props
 
+---
+
+```react
+//a가 true면 1 아니면 2
+{a && 1} {!a && 2}
+```
+
 ## 왜 npx 가 필요했을까요??
 
 글로벌 설치x
