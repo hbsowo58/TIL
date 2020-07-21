@@ -263,13 +263,13 @@ const helloHeo = hello.bind(Heo);
 
 helloHeo();
 
-const anna = {
-  name: 'Anna',
+const Soda = {
+  name: 'Soda',
 };
 
-const helloAnna = hello.bind(anna);
+const helloSoda = hello.bind(anna);
 
-helloAnna();
+helloSoda();
 
 
 ```
@@ -337,13 +337,13 @@ function rest1(...args) {
   console.log(args);
 }
 
-rest1('mark', 37, 'korea');
+rest1('Heo', 28, 'korea');
 
 function rest2(name, ...args) {
   console.log(name, args);
 }
 
-rest2('mark', 37, 'korea');
+rest2('Heo', 28, 'korea');
 ```
 
 1레벨 깊이에서만 된다는점 주의 2레벨이상 사용하려면 깊게 들어가거나 라이브러리 사용
@@ -582,13 +582,57 @@ HTML 에서 어트리뷰트 VS 리액트에서 prop 모여서 props
 
 ## 왜 npx 가 필요했을까요??
 
-글로벌 설치x
+글로벌 설치가 필요하지 않고 바로 실행이 가능하다
 
-바로실행 o
+npx를 사용하면 캐시에 있는 버전과 비교한다. (로컬에만 저장되기 때문에 많은 문제가 생길 수 있다)
 
 *npx create-react-app 프로젝트이름*
 
 매번 새로운버전으로 진행
+
+---
+
+Angular Cli
+
+vue Cli
+
+React CRA - 간단하다 (설정하기 힘들다)
+
+.bin에 있는 파일들은 바로 사용가능
+
+```javascript
+//package.json
+리액트 핵심 모듈
+"react": "^16.13.1"
+
+"react-dom": "^16.13.1"
+
+cra 를 사용하는데 필요한 모듈
+"react-scripts": "3.4.1"
+
+​Test 를 도와주는 유틸 모듈
+"@testing-library/jest-dom": "^4.2.4"
+
+"@testing-library/react": "^9.5.0"
+
+"@testing-library/user-event": "^7.2.1"
+
+react-script -> CRA의 핵심 모듈
+node_module/.bin/react-scrit
+
+npm start
+npm build -> optimized (작게 또는 못생기게 => 못알아보게) gzip
+빌드파일 생김 (public에 있는 파일들이 static 밑으로)
+
+serve -s bulid (-s 옵션 없는 경로를 index.html로 spa 없는 페이지 위임)
+->코드 바뀌어도 반응 x (파일서버)
+
+eject 커밋 한경우에만 사용가능
+```
+
+
+
+
 
 ---
 
