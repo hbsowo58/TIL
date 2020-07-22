@@ -1,18 +1,22 @@
-마운트 될때부터 언마운트 될때까지 과정
+리액트 컴포넌트 생명주기 : 마운트 될때부터 언마운트 될때까지 과정
+
+<br>
 
 오버라이딩 (상속) 부모의 메소드를 호출하거나 부모의 메소드를 덮어써서 나만의 메소드로 바꿀 수 있는것
 
-'필수' 랜더 = 없으면 쓰로우 발생 나머지는 옵셔너블
+<br>
+
+'필수' 라이프사이클 rneder = 없으면 쓰로우 발생 나머지는 옵셔너블(옵션)
 
 ---
 
-라이프사이클은 크게 마운트 / 언마운트
+라이프사이클은 크게 마운트 / 언마운트 컴포넌트가 인식되기/ 분리하기
 
 가장먼저 컨스트럭터
 
-componentWillMount (써보신적이 없다고함) : 특정한 이유로 쓰긴할텐데..
+componentWillMount (기존에 사용되었지만 이제 사용X) -> 마운트 할려고해, 돔이없음
 
--> 마운트 할려고해, 돔이없음
+-> 최신버전에서는 getDerivedStateFromProps() 메서드로 대체되는 듯
 
 render
 
@@ -26,7 +30,7 @@ ex) VueDidload
 
 ---
 
-props나 state가 바뀌면 render가 되는데
+props나 state가 바뀌면 rerendering
 
 그과정에서 라이프사이클이 있음
 
@@ -88,7 +92,7 @@ props나 state가 바뀌면 render가 되는데
 
 타이머해제, 서버에 보낸 요청해제 (안하면 뭐할라고해서 에러가남)
 
-히스토리 고인물
+히스토리를 건들여서 페이지 이동
 
 ---
 
@@ -110,7 +114,7 @@ return state변경
 
  <br>
 
-*componentWillReceiveProps* *=> **getDerivedStateFromProps*** 위로 합쳐졌네
+*componentWillReceiveProps* *=> **getDerivedStateFromProps*** 위로 합쳐졌다
 
 *shouldComponentUpdate*
 
