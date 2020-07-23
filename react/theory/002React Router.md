@@ -4,9 +4,9 @@
 
 '필수' 랜더 = 없으면 쓰로우 발생 나머지는 옵셔너블
 
+---
 
-
-크게 마운트 / 언마운트
+라이프사이클은 크게 마운트 / 언마운트
 
 가장먼저 컨스트럭터
 
@@ -18,21 +18,19 @@ render
 
 componentDidMount 
 
+---
 
-
-Will/Did (어플리케이션을 만드느 모든 프레임워크가 가지고있음)
+Will/Did (어플리케이션을 만드는 모든 프레임워크가 가지고있음)
 
 ex) VueDidload 
 
-
-
-
+---
 
 props나 state가 바뀌면 render가 되는데
 
 그과정에서 라이프사이클이 있음
 
-
+---
 
 *componentWillReceiveProps* < props가 바뀌면 여기서부터
 
@@ -71,6 +69,8 @@ props나 state가 바뀌면 render가 되는데
   - *false 면 render 가 호출되지 않습니다.*
   - *이 함수를 구현하지 않으면, 디폴트는 true*
 
+직접 건드리는 일은 없음
+
 ## componentWillUpdate 잊기
 
 - *컴포넌트가 재 랜더링 되기 직전에 불립니다.*
@@ -94,6 +94,12 @@ props나 state가 바뀌면 render가 되는데
 
 # Component 라이프사이클 변경 (v16.3)
 
+static메서드이므로 this사용 불가
+
+return state변경
+
+<br>
+
 *constructor*
 
 *componentWillMount* *=> **getDerivedStateFromProps*** 스태틱메소드
@@ -102,21 +108,21 @@ props나 state가 바뀌면 render가 되는데
 
 *componentDidMount*
 
- 
+ <br>
 
-*componentWillReceiveProps* *=> **getDerivedStateFromProps***
+*componentWillReceiveProps* *=> **getDerivedStateFromProps*** 위로 합쳐졌네
 
 *shouldComponentUpdate*
 
-*render*
+*render*   -> 호출되면 가상돔의 dif를 만듬
 
-*componentWillUpdate => **getSnapshotBeforeUpdate***
+componentWillUpdate => **getSnapshotBeforeUpdate **적용전
 
 *(dom 에  적용)*
 
-*componentDidUpdate*
+componentDidUpdate
 
-
+<br>
 
 componentWillUnmount
 
@@ -150,17 +156,9 @@ getSnapshotBeforeUpdate 쓰고 DidUpdate안쓰면 에러나고 알려줌 왜안�
 
 *componentDidCatch*
 
+에러가 발생하는 컴포넌트의 '부모'가 호출 가장 최상단(index.js까지 가야?)
 
-
-에러가 발생하는 컴포넌트의 '부모'가 호출
-
-
-
-
-
-
-
-
+<br>
 
 componentDidUpdate에서 setState를쓰면 무한에 빠질 가능성이 있어서 쓰면 안되는데
 
@@ -170,7 +168,9 @@ componentDidUpdate에서 setState를쓰면 무한에 빠질 가능성이 있어�
 
 # React 의 라우팅 이해하기
 
+url 읽기(라이브러리 사용안할때 window.location 객체의 href 프로퍼티를 본다)
 
+<br>
 
 기존에는 템플릿을 요청해서 받아왔으니
 
@@ -178,31 +178,71 @@ spa는 일단 리액트앱을 가져오면 다시 서버로 요청할 필요가 
 
 어떤 컴포넌트를 보여줄지만 정하면된다
 
-그럼에도 불구하고 검색창에 / 요청을하면 캐싱이 되어있기때문에 더빠를것이다
+그럼에도 불구하고 검색창에 / 요청을하면 캐싱이 되어있기때문에 더 빠를것이다
 
+```
+<Route path="/" exact component={Home} />
+<Route path="/about" component={About} />
+<Route path="/profile" component={Profile} />
+정확하게 표현해야한다 '들어있으면' 화면에 출력하기 때문
+```
 
+<br>
 
 가장큰 차이점은 새로고침을 누르면 서버로 간것이다
 
-
-
-
+spa 이기에 a로 링크이동을 할 필요가없다
 
 ```
-   
-      <a href="/">Home</a> // 새로고침 발생 서버요청 o
+<a href="/">Home</a> // 새로고침 발생 서버요청 o
      
-      <Link to="/">Home</Link> //새로고침 발생x 서버요청 x 내부적으론 a태그
+<Link to="/">Home</Link> //새로고침 발생x 서버요청 x 내부적으론 a태그
 ```
 
+<br>
 
-
-mactch 알고리즘
+match 알고리즘
 
 링크 to 뒤에적힌것 또는 라우터에 path에 적은 것과 브라우저 '실제 url'과 비교
 
+<br>
 
+```react
+npm i query-string
 
-Hoc () 그냥 함수 보통 with가 앞에 붙음
+import queryString from "query-string";
 
-인풋을 컴포넌트로 받고 아웃풋을 컴포넌트로 주는
+const reuslt = queryString.parse(~~);
+//분해 가능
+const {name} = result
+```
+
+<br>
+
+switch
+
+*여러 Route 중 순서대로 먼저 맞는 하나만 보여줍니다.*
+
+*exact 를 뺄 수 있는 로직을 만들 수 있습니다.*
+
+*가장 마지막에 어디 path 에도 맞지 않으면 보여지는 컴포넌트를 설정해서,
+"Not Found" 페이지를 만들 수 있습니다.*
+
+```react
+    <BrowserRouter>
+      <switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
+      </switch>
+    </BrowserRouter>
+```
+
+<br>
+
+```react
+export default withRouter(~~);
+// Hoc () 그냥 함수임 보통 with가 앞에 붙음 인풋을 컴포넌트로 받고 아웃풋을 컴포넌트로 주는 history,match,location 등을 넣어준다
+```
+
