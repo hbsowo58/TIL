@@ -184,11 +184,11 @@ spa는 일단 리액트앱을 가져오면 다시 서버로 요청할 필요가 
 
 그럼에도 불구하고 검색창에 / 요청을하면 캐싱이 되어있기때문에 더 빠를것이다
 
-```
+```react
 <Route path="/" exact component={Home} />
 <Route path="/about" component={About} />
 <Route path="/profile" component={Profile} />
-정확하게 표현해야한다 '들어있으면' 화면에 출력하기 때문
+//정확하게 표현해야한다 exact속성이 없을시 '들어있으면' 화면에 출력하기 때문
 ```
 
 <br>
@@ -197,7 +197,7 @@ spa는 일단 리액트앱을 가져오면 다시 서버로 요청할 필요가 
 
 spa 이기에 a로 링크이동을 할 필요가없다
 
-```
+```react
 <a href="/">Home</a> // 새로고침 발생 서버요청 o
      
 <Link to="/">Home</Link> //새로고침 발생x 서버요청 x 내부적으론 a태그
@@ -249,4 +249,5 @@ switch
 export default withRouter(~~);
 // Hoc () 그냥 함수임 보통 with가 앞에 붙음 인풋을 컴포넌트로 받고 아웃풋을 컴포넌트로 주는 history,match,location 등을 넣어준다
 ```
+
 
