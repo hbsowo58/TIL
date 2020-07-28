@@ -49,3 +49,89 @@ shadow = 별도의 공간이라는 개념으로 받아들이면서 시작
 npm i react-shadow
 ```
 
+
+
+<br>
+
+antd
+
+자동화
+
+```
+npm run eject
+npm install babel-plugin-import --save-dev
+
+//package.json
+plugins 추가
+```
+
+
+
+<br>
+
+# HOC *Higher Order Component*
+
+*advanced technique in React for **reusing** component logic.*
+
+***not** part of the React API*
+
+*a **pattern** that emerges from React’s compositional nature.*
+
+---
+
+```react
+HOC = function(컴포넌트) { return 새로운 컴포넌트; }
+```
+
+HOC는 <컴포넌트> 를 인자로 받아 <새로운 컴포넌트> 를 리턴하는 함수
+
+---
+
+connect(), Fragment Container, withRouter(),
+
+---
+
+### *사용하는 법*
+
+- *Use HOCs For [**Cross-Cutting Concerns**](https://ko.wikipedia.org/wiki/횡단_관심사)*
+- *Don’t Mutate the Original Component. Use Composition.*
+- *Pass Unrelated Props Through to the Wrapped Component*
+- *Maximizing Composability*
+- *Wrap the Display Name for Easy Debugging*
+
+---
+
+종류
+
+```react
+// 1. withRouter
+withRouter(컴포넌트) => 뉴 컴포넌트
+
+// 2. connect
+connect(설정) => function
+connect(설정)(컴포넌트) => 뉴 컴포넌트
+
+// 3. createFramentContainer
+createFramentContainer(컴포넌트, 설정) => 뉴 컴포넌트
+
+
+//빼빼로 예제 ex)withRouter
+function 선물상자(){
+    // 무엇인가 구함 ex)리본
+    
+    return (
+    	<div>
+        	<빼빼로 리본={리본}/>
+        </div>
+    )
+}
+```
+
+### *주의할 점*
+
+- *Don’t Use HOCs Inside the render Method*
+- *Static Methods Must Be Copied Over*
+- *Refs Aren’t Passed Through (feat. React.forwardRef)*
+
+---
+
