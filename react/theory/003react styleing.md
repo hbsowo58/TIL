@@ -147,7 +147,13 @@ Sass/Scss 차이 {}중괄호와 ; 세미콜론
 
 scss사용하는 이유 (기존과 비슷하고 대중성 있어서)
 
+---
 
+styled-component 장1 .css, .scss 파일 만들지 않아도된다 장2 props 값으로 전달해주는 값 쉽게 스타일링 가능
+
+styled-component의 `(백틱) tagged 템플릿 리터럴로 여기에 사용하면 객체나 함수 온전히 추출가능
+
+---
 
 찾아볼내용
 

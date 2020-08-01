@@ -28,6 +28,58 @@ basic hook (useState, useEffect)
 
 useEffect(랜더직후에 할일이 있을때 사용, cleanup시에 할일이 있을때 사용)
 
+---
+
+hooks 가 출현한 이유: 라이프 사이클 마다 반복하는 행위가 있다면, 재사용이 어렵다
+
+this.state는 로직에서 레퍼런스를 공유한다 -> 상황에 따라 필요할 수 있음
+
+---
+
+useEffect -> 라이프 사이클 hook 대체 가능
+
+#### 리턴이 된 직후 실행된다(함수,배열)
+
+의존성 배열안에 있는 인자가 바뀐뒤 실행 된다                              -> 모든 함수형 컴포넌트의 결과물은 return뒤
+
+return 뒤에가 componentWillIUnmount의 역할을 한다
+
+---
+
+최초에 렌더링
+
+1.최초의 UI렌더링
+
+2.useEffect 실행                        
+
+3.상태변화
+
+4.변화에 따른 UI렌더링
+
+---
+
+hooks에 use~가 붙는이유: 재사용에 목적을 두기에 네이밍을 use~로 하였다
+
+---
+
+hoc(props)변경 vs custom hooks(state)변경
+
+---
+
+useMemo(함수,의존성배열) 값을 다룰때
+
+React.Memou(최적화)
+
+
+
+useCallback 함수 다룰때
+
+
+
+createRef(uncontrolled component) vs useRef
+
+
+
 
 
 ---
@@ -35,3 +87,12 @@ useEffect(랜더직후에 할일이 있을때 사용, cleanup시에 할일이 �
 # Additional Hooks
 
 기본훅들로 이뤄져있음
+
+
+
+함수형 컴포넌트에서 createRef는 최악이다(클래스형과 함수형의 구분을 못한다는것)
+
+
+
+context API 어디서든 접근할 수 있는 공간 = "어디서든 접근할 수 있는 부분이 있다"
+
