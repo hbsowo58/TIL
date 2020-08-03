@@ -688,7 +688,9 @@ yarn의 메리트 (속도가 좀빠르다?)
 
 ---
 
-npm ci (마지막 작업했던 그대로 사용하고싶다)
+npm ci (package.json.lock기준)마지막 작업했던 그대로 사용하고싶다
+
+npm i(package.json 기준)
 
 ## Prettier
 
