@@ -11,11 +11,13 @@ var, let 나아가 const는 모두 '변수'를 선언하기 위한 키워드입�
 var키워드의 단점은
 
 <br>
-\1. 암묵적 결합(중복 선언 가능)
-\2. 생략 가능
-\3. 변수 호이스팅
-
-\4. 함수레벨 스코프
+1. 암묵적 결합(중복 선언 가능)
+<br>
+2. 생략 가능
+<br>
+3. 변수 호이스팅
+<br>
+4. 함수레벨 스코프
 
 등 단점들이 있습니다.
 
@@ -26,13 +28,13 @@ es6에서 출시된 키워드라고 이해하면 됩니다.
 
  <br>
 
-\1. 암묵적 결합(중복 선언 가능)
+암묵적 결합(중복 선언 가능)
 
 ```
 (function() {
   var variable = 'hi i am var keyword';
   var variable = 'Redundancy declaration';
-  
+
   console.log(variable);
 })();
 ```
@@ -62,7 +64,7 @@ variable이라는 변수에 할당된 값은 console에 어떻게 출력될까�
 ```
 (function() {
   variable = 'no var';
-  
+
   console.log(variable);
 })();
 
@@ -76,9 +78,9 @@ console.log(variable);
 
 ```
 (function() {
-  
+
   console.log(variable);
-  
+
   var variable = 'hoisted';
 })();
 ```
@@ -94,10 +96,10 @@ console.log(variable);
 
 ```
 (function() {
-  if (true) {   
+  if (true) {
     var variable = 'function scope';
   }
-  
+
   console.log(variable);
 })();
 ```
@@ -111,9 +113,7 @@ if 문에 포함되지 않음에도 if 문에서 할당된 변수에 참조가 �
 
  <br>
 
-1.긴 생명 주기
-2.스코프 체인상 종점에 존재
-3.네임스페이스 오염
+1.긴 생명 주기 2.스코프 체인상 종점에 존재 3.네임스페이스 오염
 
  <br>
 
@@ -225,23 +225,21 @@ let foo = 1; // 전역 변수
 
 let 키워드로 선언한 변수의 경우, 변수 호이스팅이 발생하지 않는다면 위 예제는 전역 변수 foo의 값을 출력해야 합니다
 
-<br> 
+<br>
 
 하지만 let 키워드로 선언한 변수도 여전히 호이스팅이 발생하기 때문에 참조 에러(ReferenceError)가 발생합니다.
 
-<br> 
+<br>
 
-자바스크립트는 ES6에서 도입된 let, const를 포함해서 모든 선언(var, let, const, function, function*, class 등)을 호이스팅합니다.
+자바스크립트는 ES6에서 도입된 let, const를 포함해서 모든 선언(var, let, const, function, function\*, class 등)을 호이스팅합니다.
 
  <br>
 
 단, ES6에서 도입된 let, const, class를 사용한 선언문은 호이스팅이 발생하지 않는 것처럼 동작합니다.
 
-<br> 
+<br>
 
 주관적으로 var 키워드는 더 이상 사용하지 않기 때문에 var 키워드의 단점을 이해했는가를 문제의 핵심으로 추측해보았습니다.
-
-
 
 ---
 
