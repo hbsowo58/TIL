@@ -12,15 +12,9 @@ HTML은 문서이며, 기본 양식이 존재합니다.
 
 메모장에 최소한의 코딩만으로도 브라우저에 원하는 내용을 출력 가능합니다.
 
-<figure>     <img src="C:\Users\82109\AppData\Roaming\Typora\typora-user-images\image-20201006104027466.png" title="시작은 미약하다"></figure>
-
 <br>
 
 최소한의 문서 구조를 위해 IDE에 EMMET 명령어를 사용하겠습니다 ! 또는 html:5를 사용해 주세요
-
-<br>
-
-![단축명령사용](C:\Users\82109\AppData\Roaming\Typora\typora-user-images\image-20201006104525938.png)
 
 <br>
 
@@ -193,7 +187,7 @@ head 태그는 브라우저에 표시되지 않으며, title처럼 문서의 제
 
 해당 코드가 없게되면 브라우저의 한글등이 깨져보이는 현상이 발생할 수 있습니다
 
-![문자깨짐](C:\Users\82109\Desktop\dev-charset-err.png)
+
 
 <br>
 
@@ -265,3 +259,8 @@ body element 안의 콘텐츠들이 브라우저에 나타나며 UI 작업의 �
 <br>
 
 HTML 기본 양식에 대하여 알아보았으며, 바탕으로 웹 개발을 지속해보겠습니다
+
+<br>
+
+[원본글](https://hbsowo58.tistory.com/470)
+
