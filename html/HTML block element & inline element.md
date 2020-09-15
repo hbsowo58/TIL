@@ -67,7 +67,7 @@ inline-element의 특징
 2. 콘텐츠의 크기만큼 넓이와 높이를 갖는다
 3. 높이와 넓이를 지정할 수 없다
 4. inline element만 자식으로 가질 수 있다.
-5. 넓이와 높이 값을 *주기 위해선* block 화 (display:block)
+5. 넓이와 높이 값을 주기 위해선 block 화 (display:block)
 
 <br>
 
