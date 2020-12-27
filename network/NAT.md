@@ -102,13 +102,13 @@ NAT를 통해 적은 IP를 활용하였으나, 미래(현재 포함) IPv6가 대
 
 ### 정의
 
-Dynamic Host Configuration protocol 동적 호스트 구성 프로토콜(약속,규약)
+Dynamic Host Configuration protocol 동적 호스트 구성 프로토콜(약속, 규약)
 
 
 
-네트워크 호스트의 IP주소등을 자동적으로 일정기간 임대해주는 프로토콜 (UDP 베이스 신뢰 ↓ 성능 ↑)
+네트워크 호스트의 IP 주소 등을 자동적으로 일정 기간 임대해 주는 프로토콜 (UDP 베이스 신뢰 ↓ 성능 ↑)
 
-호스트 IP를 구성관리를 단순화 하는 IP 표준
+호스트 IP를 구성 관리를 단순화하는 IP 표준
 
 
 
