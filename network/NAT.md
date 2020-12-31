@@ -116,13 +116,13 @@ BOOTP의 대안
 
 
 
-과정 임대,갱신,반환
+과정 임대, 갱신, 반환
 
-임대과정 :DORA => Discover, offer,Request, Ack
+임대 과정 :DORA => Discover, offer, Request, Ack
 
-갱신과정: Reqeust, Ack => 50%, 87.5%때 갱신을 시도
+갱신 과정: Reqeust, Ack => 50%, 87.5% 때 갱신을 시도
 
-반환과정:세가지중 가장 중요 반환이 없다면 고정 IP방식보다 안좋음
+반환 과정:세 가지 중 가장 중요 반환이 없다면 고정 IP 방식보다 안 좋음
 
 
 
