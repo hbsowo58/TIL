@@ -20,17 +20,17 @@ postman 설치
 
 <br>
 
-### 서버켜기 npx nodemon index.js
+### 서버 켜기 npx nodemon index.js
 
 <br>
 
 all -> 전부 가져오기
 
-xhr -> 비동기 메서드로 가져올때
+xhr -> 비동기 메서드로 가져올 때
 
 <br>
 
-마우스 우클릭 - 메서드
+마우스 우 클릭 - 메서드
 
 <br>
 
