@@ -36,7 +36,7 @@ scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
 
 URL 분석
 
-http://www.example.com:80/path/to/myfile.html?key1=value1&key=value2#somewhereinTheDocument
+http://www.example.com:80/path/to/myfile.html? key1=value1&key=value2#somewhereinTheDocument
 
 <br>
 
@@ -48,7 +48,7 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key=value2#somewherein
 
 <br>
 
-3.   :80 포트 HTTP는 80 HTTPS는 443 ->생략 가능 그렇지 않으면 필수
+3. :80 포트 HTTP는 80 HTTPS는 443 ->생략 가능 그렇지 않으면 필수
 
 <br>
 
@@ -60,7 +60,7 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key=value2#somewherein
 
 <br>
 
-6.#somewhereinTheDocument : 자원 자체의 다른 부분에 대한 anchor (bookmark개념)
+6.#somewhereinTheDocument : 자원 자체의 다른 부분에 대한 anchor (bookmark 개념)
 
 <br>
 
