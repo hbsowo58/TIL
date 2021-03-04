@@ -36,7 +36,7 @@ scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
 
 URL 분석
 
-http://www.example.com:80/path/to/myfile.html?key1=value1&key=value2#somewhereinTheDocument
+http://www.example.com:80/path/to/myfile.html? key1=value1&key=value2#somewhereinTheDocument
 
 <br>
 
@@ -48,7 +48,7 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key=value2#somewherein
 
 <br>
 
-3.   :80 포트 HTTP는 80 HTTPS는 443 ->생략 가능 그렇지 않으면 필수
+3. :80 포트 HTTP는 80 HTTPS는 443 ->생략 가능 그렇지 않으면 필수
 
 <br>
 
@@ -60,7 +60,7 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key=value2#somewherein
 
 <br>
 
-6.#somewhereinTheDocument : 자원 자체의 다른 부분에 대한 anchor (bookmark개념)
+6.#somewhereinTheDocument : 자원 자체의 다른 부분에 대한 anchor (bookmark 개념)
 
 <br>
 
@@ -78,21 +78,21 @@ ex) 전화번호부
 
 <br>
 
-도메인 이름의 구조(점으로 구분)(오른쪽에서 왼쪽기준)
+도메인 이름의 구조(점으로 구분)(오른쪽에서 왼쪽 기준)
 
 developer.mozila.org
 
 <br>
 
-org : TLD (최상위 도메인) -> 도메인 이름뒤에 존재, 서비스의 일반적인 목적 (.com .org .et)
+org : TLD (최상위 도메인) -> 도메인 이름 뒤에 존재, 서비스의 일반적인 목적 (.com .org .et)
 
--> 지역 .us .ko 특정 국가/언어의 자원 .gov(정부 부서)  .edu (교육 및 할술 기관)
+-> 지역. us .ko 특정 국가/언어의 자원. gov(정부 부서) .edu (교육 및 할 술 기관)
 
 <br>
 
 developer.mozila : 레이블 -> A부터 Z까지의 문자 0부터 9까지의 숫자만 포함하는 시퀀스
 
-TLD 바로 앞에 있는 레이블을 SLD(*Secondary Level Domain*) 라고도 함
+TLD 바로 앞에 있는 레이블을 SLD(*Secondary Level Domain*)라고도 함
 
 <br>
 
