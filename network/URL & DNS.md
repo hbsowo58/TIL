@@ -1,6 +1,6 @@
-# URL Uniform Resource Locator 
+# URL Uniform Resource Locator
 
-인터넷에서, 어느 사이트에 접속하기 위해서 입력해야 하는, 주소를 포함한 일련의 문자, 맨앞에 
+인터넷에서, 어느 사이트에 접속하기 위해서 입력해야 하는, 주소를 포함한 일련의 문자, 맨 앞에
 
 'http://'를 입력하고, 다음에 해당 사이트의 주소를 표시 [정의 출처 : [Oxford Languages](https://languages.oup.com/google-dictionary-ko)]
 
