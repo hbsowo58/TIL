@@ -12,19 +12,19 @@ Promise와 callback의 차이
 
 <br>
 
-비동기함수의 error는 원래 유실 되었으나, promise에서 error가 발생하면 error를 래핑한
+비동기 함수의 error는 원래 유실되었으나, promise에서 error가 발생하면 error를 래핑 한
 
-promise가 반환되기 때문에 해결할 수 있다. promise라고해서 콜백헬이 발생하지 않는 것은 아니다
+promise가 반환되기 때문에 해결할 수 있다. promise라고 해서 콜백 헬 이 발생하지 않는 것은 아니다
 
-정확하게 promise는 setTimeout같은 비동기함수의 유실된 에러를 해결하기 위해 나왔다고 보는 것이
+정확하게 promise는 setTimeout 같은 비동기 함수의 유실된 에러를 해결하기 위해 나왔다고 보는 것이
 
 옳다.
 
 <br>
 
-둘다 자바스크립트 비동기 처리를 위한 방식이며,
-처음 비동기 방식은 callback방식을 사용했는데 -> callback hell이 발생했다 (함수처리순서를 보장하기 때문)
-es6부터 Promise 출현 및 정식채용
+둘 다 자바스크립트 비동기 처리를 위한 방식이며,
+처음 비동기 방식은 callback 방식을 사용했는데 -> callback hell이 발생했다 (함수처리 순서를 보장하기 때문)
+es6부터 Promise 출현 및 정식 채용
 
 promise 생성자를 통해 함수를 인스턴스화하며 비동기 처리에 성공하면 resolve메소드를 호출해서 비동기 처리결과를 후속메소드로 전달
 실패하면 reject메소드를 호출해서 에러메시지를 후속처리 메소드로 전달
