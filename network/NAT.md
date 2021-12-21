@@ -28,14 +28,6 @@ IP 주소 집합 => 다른 IP 주소 집합 변환하는 기술
 
 ->금전적인 이유
 
-
-
-통신하는 방법(그림)
-
-![image-20201216124006282](C:\Users\82109\AppData\Roaming\Typora\typora-user-images\image-20201216124006282.png)
-
-
-
 ### 장점
 
 1) 호스트당 각각 IP를 부여하지 않아도 됨
