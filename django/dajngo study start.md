@@ -20,6 +20,8 @@ django http에서 서버의 요청에 대한 응답을 Json으로 응답하기 �
 <br>
 DB에 추가되는 created_at, updated_at은 timestamp이며 언제 생성되었고, 언제 업데이트 되었는지를 가리킨다.
 -> created_at의 auto_now_add 와 auto_now는 추가된 시간을 기억/ 알아서 지금을 기억하는 속성이다.
+-> auto_now_add는 (최초 생성일자 -> 다른 것은 변해도 이필드는 변하지 않는다)
+-> auto_now(수정 일자)
 <br>
 대부분의 프로그래밍 언어 & DB에 현재 시간을 나타내는 함수가 존재하며 (ex javascript date함수) 시간 비교를 위해 필요하다.
 <br>
@@ -28,3 +30,67 @@ DB에 추가되는 created_at, updated_at은 timestamp이며 언제 생성되었
 __str__은 매직 메소드(js의 내장메소드?랑 비슷하다고 추측한다)이며, 어떤 '값(객체)을 문자열로 반환한다.
 <br>
 django의 특징중 하나는 관리자 페이지를 자체적으로 제공한다
+<br>
+form 태그 생성 -> label과 input, for 와 id가 짝꿍(깐부)다
+<br>
+"name"속성의 존재는 "서버"를 위한 것이다 -> 이름을 불러주기 전에는 의미x
+-> textarea 태그에서는 name을 default로 가지고있다
+<br>
+1.request.POST['key'] -> key라는 이름의 key값이 없으면 출력이 없다
+2.request.POST.get('title') -> 없으면 NOEN을 리턴하고 주로 2의 방ㅂ버을 사용한다(서버의 ERROR로 인한 다운 방지)
+<br>
+```
+    <button>
+        <a>버튼</a>
+    </button>
+```
+버튼안에 a의 밑줄이 자동으로 발생되며 a태그안에 button태그를 넣으면 해결이 가능하지만, 권장하지 않는다
+-> 웹 접근성에 위배되고, 두가지 이벤트가 충돌할 수 있으며 a태그의 자식요소로는 상호작용이 없는 요소를 권장한다
+-> 또한 ,a태그의 자식요소로 h1 태그를 넣는 것도 웹 접근성에 좋지 않다
+<br>
+django의 model은 db가 아니며, query는 데이터베이스를 조작한다 (조작이라는 것은 조회,추출,삽입,삭제를 뜻한다)
+model은 db를 구조화하려고, 인터페이스화 시킨 것 이다
+<br>
+ORM은 직역하면 객체 관계 대응으로 해석할 수 있으며(하나의 값을 다른 값으로 대응) 한자로는 사상이라고할 수 있다
+Django와 SQL은 각각 다른언어로 통신할 수 없기 때문에, ORM이라는 번역(가)를 고용한다고 생각하면 된다
+목적은 DB를 객체로 조작하기 위함이다
+<br>
+```
+pip install -r requirements.txt
+```
+위 명령어를 통해, requirements파일에 있는 패키지들을 같은 버전으로 모두 설치할 수 있다
+<br>
+Test(models.Model) -> 스키마이며 models의 Model 클래스를 상속받는다.
+title, content같은 필드(열)을 가질 수 있고 기본적으로 pk를 포함한 필드가 생기기 때문에
+작성한 필드 + 1개가 총 필드 수가 된다
+<br>
+models.CharField 와 TextField는 모두 텍스트를 받는 데이터타입이지만, max_length를 정해야 한다는 차이점을 가지고있다
+<br>
+migrate(이주하다) migration(이주) make(만들다, 하다 또는 프로그래밍의 빌드도구 명령어)로 해석되며
+django가 model에 생긴 변화를 반영할지를 정한다(django 기준 db.sqlite3 파일)
+<br>
+setting.py 파일 안에 -> 이미 내장 app이 있고, 내부에 필요한 테이블들이 sqlite3파일에 저장되어 있다
+[app이름_클래스 네임 형식으로]
+<br>
+```
+python manage.py sqlmigrate 클래스명 버전
+```
+위의 명령어로 현재 명령어의 sql 버전을 확인할 수 있다
+<br>
+사용방법
+Test.objects.all() -> 전체 쿼리셋의 복사본
+class name | manager | query set
+<br>
+데이터 처리의 4가지 CRUD -> ex)페이스북 게시글 생성,조회,수정,삭제
+<br>
+create하는방법
+1.인스턴스 생성후 하나씩 저장
+2.초기값과 함께 생성후 저장
+3.create(생성+저장) ->권장 + id의 short cut인 pk권장
+<br>
+read (CRUD중 가장중요) -> 데이터를 다루는 것은 필요한 데이터를 필터링하는 것
+<br>
+쿼리셋을 리턴하는 두가지
+1. 새로운 쿼리셋 리턴 (create)
+2  쿼리셋을 리턴 x (read)
+<br>
