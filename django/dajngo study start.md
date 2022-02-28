@@ -18,14 +18,18 @@ django http에서 서버의 요청에 대한 응답을 Json으로 응답하기 �
 <br>
 .gitignore 파일은 git에서 변경감지를 하지 않을 파일들을 설정한다. 따로 작성하지 않고 gitignore io 사이트를 사용해도 된다.
 <br>
+<br>
 DB에 추가되는 created_at, updated_at은 timestamp이며 언제 생성되었고, 언제 업데이트 되었는지를 가리킨다.
 -> created_at의 auto_now_add 와 auto_now는 추가된 시간을 기억/ 알아서 지금을 기억하는 속성이다.
 -> auto_now_add는 (최초 생성일자 -> 다른 것은 변해도 이필드는 변하지 않는다)
 -> auto_now(수정 일자)
 <br>
+<br>
 대부분의 프로그래밍 언어 & DB에 현재 시간을 나타내는 함수가 존재하며 (ex javascript date함수) 시간 비교를 위해 필요하다.
 <br>
+<br>
 예시상황으로 models.py를 있었으면 좋겠는 바람의 파일, make migration을 설계도, migrate를 실행이라고 가정한다
+<br>
 <br>
 __str__은 매직 메소드(js의 내장메소드?랑 비슷하다고 추측한다)이며, 어떤 '값(객체)을 문자열로 반환한다.
 <br>
