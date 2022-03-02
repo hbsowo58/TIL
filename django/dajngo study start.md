@@ -33,6 +33,7 @@ DB에 추가되는 created_at, updated_at은 timestamp이며 언제 생성되었
 <br>
 __str__은 매직 메소드(js의 내장메소드?랑 비슷하다고 추측한다)이며, 어떤 '값(객체)을 문자열로 반환한다.
 <br>
+<br>
 django의 특징중 하나는 관리자 페이지를 자체적으로 제공한다
 <br>
 form 태그 생성 -> label과 input, for 와 id가 짝꿍(깐부)다
