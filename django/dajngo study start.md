@@ -12,7 +12,6 @@ class [클래스 명](models.Model)을 붙인순간, DB와 통신한다
 다른 프로그래머가 개발해놓은 코드들을 사용하여 유지보수 하기 유리하다
 <br>
 <br>
-
 ```
 import json # json 데이터를 처리하기 위해 import
 from django.views import View # django.views에서 View 가져오기
@@ -152,7 +151,7 @@ django-admin startproject fristpjt . (firstpjt, manage.py생성)
 .을 붙이냐 안붙이냐에 따라, manage.py가 firstpjt 안으로 들어간다
 <br>
 <br>
-4서버 실행 로켓확인
+4 서버 실행 로켓확인
 
 python manage.py runserver
 
@@ -161,7 +160,7 @@ python manage.py runserver
 <br>
 python manage.py  startapp [app명s]
 
-6.앱등록하는 과정
+6 앱등록하는 과정
 <br>
 <br>
 ---
