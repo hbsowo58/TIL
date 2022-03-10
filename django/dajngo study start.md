@@ -151,7 +151,7 @@ django-admin startproject fristpjt . (firstpjt, manage.py생성)
 .을 붙이냐 안붙이냐에 따라, manage.py가 firstpjt 안으로 들어간다
 <br>
 <br>
-4 서버 실행 로켓확인
+4.서버 실행 로켓확인
 
 python manage.py runserver
 
