@@ -69,10 +69,8 @@ Django와 SQL은 각각 다른언어로 통신할 수 없기 때문에, ORM이�
 목적은 DB를 객체로 조작하기 위함이다
 <br>
 <br>
-```
-pip install -r requirements.txt
-```
-위 명령어를 통해, requirements파일에 있는 패키지들을 같은 버전으로 모두 설치할 수 있다
+
+pip install -r requirements.txt 명령어를 통해, requirements파일에 있는 패키지들을 같은 버전으로 모두 설치할 수 있다
 <br>
 <br>
 Test(models.Model) -> 스키마이며 models의 Model 클래스를 상속받는다.
@@ -90,10 +88,7 @@ django가 model에 생긴 변화를 반영할지를 정한다(django 기준 db.s
 setting.py 파일 안에 -> 이미 내장 app이 있고, 내부에 필요한 테이블들이 sqlite3파일에 저장되어 있다
 [app이름_클래스 네임 형식으로]
 <br>
-```
-python manage.py sqlmigrate 클래스명 버전
-```
-위의 명령어로 현재 명령어의 sql 버전을 확인할 수 있다
+python manage.py sqlmigrate 클래스명 버전 명령어로, 현재 명령어의 sql 버전을 확인할 수 있다
 <br>
 <br>
 사용방법
@@ -121,12 +116,9 @@ read (CRUD중 가장중요) -> 데이터를 다루는 것은 필요한 데이터
 4가지 키워드(client,server,request(요청),response(응답))
 <br>
 <br>
-view(하는일 많음 -> 중요?)
-
+views.py(하는일 많음 -> 중요)
 ---
-
 extension 설치 확인
-
 ---
 
 1. "가상환경 설정 & 활성화" 왜 만드나? "독립적인 개발 공간" -> 방 예시 가상환경을 통해 방을 맞춤
